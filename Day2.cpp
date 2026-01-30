@@ -186,24 +186,74 @@ int main() {
     //( Q 8) Given 3 numbers , print the maximum and minimum among them.
     
     int m = 3, n1 = 6 , o = 4,max,min;
+    /*Why i didn't initialize max = 0 and min = 0 . Let we have did this then 
+    (case 1 ) if m  = m = -1, n1 = -2 , o = -4 
+     then even max needed to be = -1 but max would have been = 0
+
+     (Case 2) if m= 1 , n1 = 2, o = 3
+     then even min needed to be = 1 but min would have been = 0 which is wrong.
+    */
     
     if(m>n1){
-        max = m;
-        min = n1;
+        max_ = m;
+        min_ = n1;
     }
     else{
-        max = n1;
-        min = m;
+        max_ = n1;
+        min_ = m;
     }
     
-    if(max < o){
-        max = o;
+    if(max_ < o){
+        max_ = o;
     }
-    else if(min > o){
-        min = o;
+    else if(min_ > o){
+        min_ = o;
     }
     
-    cout << "Max : " << max << " , " << "Min : " << min << endl;
+    cout << "Max : " << max_ << " , " << "Min : " << min_ << endl;
+
+
+    //sir mehtod
+
+    int a = 1, b = 5 , c = 3;
+    // ans : min1 = 1, max1 = 5;
+    
+    int min1 = a, max1 = a;
+    
+    if(b>max1)
+    {
+        max1 = b;
+    } 
+    else if(b<min1)
+    {
+        min1 = b;
+    }
+    
+    if(c>max1)
+    {
+        max1 = c;
+    } 
+    else if(c<min1)
+    {
+        min1 = c;
+    }
+    
+    cout << min1 << " " << max1 << endl;
+
+    /* why i use max_ , min_ and max2,min1 and not max and min simply 
+    because max and min are built in function and when we have used max , min as identifier then they have lost their functionality and 
+    have act as simply variable not as function
+    
+    */
+
+    // Method 2 
+
+    cout << max(2,4) << endl;
+    
+    cout << min(2,4) << endl;
+    
+    int x = 1,y = 2,z = 3;
+    cout << "max_value : " << max(x,max(y,z)) << ", min_value : " << min(x,min(y,z)) << endl;
     
 
     
