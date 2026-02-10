@@ -135,6 +135,114 @@ int main()
         for(int i = 0; i<size5 ; i++){
             cout << "element of an array is : " << x[i] << endl;
         }
+
+
+    //( Q 3) Given an array of integers, rotate the array by d positions on the left.
+    /*
+    let d = 3
+    a[] = {4,6,2,1,8};
+    op[] = {1,8,4,6,2]
+    
+    */
+    
+    int a[] = {4,6,2,1,8};
+    int d = 3;
+    int size = sizeof(a)/sizeof(a[0]);
+    int first = a[0];
+    int second = a[1];
+    int third = a[2];
+    for(int i = 0;i<size-d;i++){
+        a[i] = a[i+d];
+    }
+    a[size-d] = first;
+    a[size-d+1]  = second;
+    a[size -d+2] = third;
+    
+    for(int i = 0;i<size;i++){
+        cout << "the element is : " << a[i] << endl;
+    }
+    
+    cout << "end" << endl;
+    
+    // Method 2 
+     
+    int a1[] = {4,6,2,1,8};
+    int d1 = 3;
+    int size1 = sizeof(a)/sizeof(a[0]);
+    int rep[d1];
+    for(int i = 0;i<size1-d1;i++){
+        if(i<d1){
+            rep[i] = a1[i];
+            rep[i+1] = a1[i+1];
+        }
+        rep[d-1] = a1[d-1];
+        a1[i] = a1[i+d];
+    }
+    for(int i = 0;i<d ; i++){
+    a1[size1-d1 + i] = rep[i];
+    a1[size1-d1+i]  = rep[i];
+    a1[size1 -d1+i] = rep[i];
+    }
+    
+    
+    
+    for(int i = 0;i<size1;i++){
+        
+        cout << "the element is : " << a1[i] << endl;
+    }
+    
+    
+    //Sir's Method
+    
+    int f[] = {1,2,10,3,4,7,8};
+    int n = sizeof(f)/sizeof(f[0]);
+    int g = 3;
+    
+    while(g!=0){
+        int temp = f[0];
+        for(int i = 0;i<n-1;i++){
+            f[i] = f[i+1];
+        }
+        f[n-1] = temp;
+        g--;
+    }
+    
+    for(int i = 0; i<n;i++){
+        cout<<f[i] << " ";
+    }
+    
+    cout << endl;
+    
+    //time complexity = O(n*d)
+    
+    //sir's method 2
+    
+    
+    
+    int arr[] = {1,8,4,6,2};
+    int n3 = sizeof(arr)/sizeof(arr[0]);
+    int d3 = 3;
+    int brr[n3];
+    
+    for(int i = d3;i<n3;i++){
+        brr[i-d3] = arr[i];
+        
+    }
+    
+    for(int i = 0;i<n3;i++){
+        brr[n3-d3+i] = arr[i];
+    }
+    
+    for(int i = 0;i<n3;i++){
+        cout<<brr[i] << " " ;
+    }
+    
+    //time complexity = O(n)
+    //space complexity = O(n)
+    
+    
+    cout << endl;
+    
         
         
         
